@@ -15981,3 +15981,66 @@ def analyze_data(dfs: list[pd.DataFrame]) ->dict:
         ```
 2023-11-14 13:41:02 [INFO] Answer: {'type': 'plot', 'value': 'temp_charts/9f35d682-f086-4cbe-80ef-d43ead0fb788.png'}
 2023-11-14 13:41:02 [INFO] Executed in: 0.24231457710266113s
+2023-11-15 13:38:21 [INFO] Question: What is the max expense?
+2023-11-15 13:38:22 [INFO] Running PandasAI with azure-openai LLM...
+2023-11-15 13:38:22 [INFO] Prompt ID: 412baae0-1262-46b9-aa07-b85a32f18708
+2023-11-15 13:38:22 [INFO] Using cached response
+2023-11-15 13:38:22 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data, using the provided dataframes (`dfs`).
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart you must save it as an image in temp_chart.png and not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": f"The highest salary is {highest_salary}." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    # Extract the first dataframe from the list
+    df = dfs[0]
+    
+    # Calculate the maximum expense
+    max_expense = df['expenses'].max()
+    
+    return { "type": "number", "value": max_expense }
+```
+
+2023-11-15 13:38:22 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data, using the provided dataframes (`dfs`).
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart you must save it as an image in temp_chart.png and not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": f"The highest salary is {highest_salary}." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    df = dfs[0]
+    max_expense = df['expenses'].max()
+    return {'type': 'number', 'value': max_expense}
+        ```
+2023-11-15 13:38:22 [INFO] Answer: {'type': 'number', 'value': 14856.0}
+2023-11-15 13:38:22 [INFO] Executed in: 0.7877881526947021s

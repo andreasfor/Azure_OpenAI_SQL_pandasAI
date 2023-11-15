@@ -6,7 +6,7 @@ import pandas as pd
 import sql_db
 from prompts.prompts import SYSTEM_MESSAGE
 from azure_openai import get_completion_from_messages
-from pandas_azure_openai import return_pandas_agent
+from pandas_azure_openai import PandasAIClass
 import json
 
 import os
@@ -51,10 +51,10 @@ sql_results = query_database(query)
 print(sql_results)
 
 # Instantiate a pamdas agent with the subset of the querry results
-pandas_agent = return_pandas_agent(subset_data=sql_results)
+pandas_agent_no_chart = PandasAIClass.return_pandas_agent_no_chart(subset_data=sql_results)
 
 # Chat with the agent
-response = pandas_agent.chat("What is the max expense?")
+response = pandas_agent_no_chart.chat("What is the max expense?")
 print(response)
 
 
