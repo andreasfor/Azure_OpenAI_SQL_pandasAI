@@ -6,3 +6,5 @@ New commit
 another commit when switched main branch
 
 Can we make a new push
+
+adding text to branch "new_branch"
