@@ -6,7 +6,9 @@ This code is based on this repository: https://github.com/NikhilSehgal123/Azure-
 ------------------------------------------
 
 Create virtual environment
+
 python -m venv .venv
+
 source .venv\Scripts\activate  # On Mac, use:.venv/bin/activate 
 
 
