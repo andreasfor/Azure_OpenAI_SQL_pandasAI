@@ -11,4 +11,6 @@ python -m venv .venv
 
 source .venv\Scripts\activate  # On Mac, use:.venv/bin/activate 
 
+------------------------------------------
 
+And create a .env file with Azure Open AI credentials 
